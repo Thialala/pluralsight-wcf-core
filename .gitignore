@@ -1,0 +1,27 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/pluralsight-wcf-core/v14
+/GeoLib.Client/bin/Debug
+/GeoLib.Client/obj/Debug
+/GeoLib.ConsoleHost/bin/Debug
+/GeoLib.ConsoleHost/obj/Debug
+/GeoLib.Contracts/bin/Debug
+/GeoLib.Contracts/obj/Debug
+/GeoLib.Core/bin/Debug
+/GeoLib.Core/obj/Debug
+/GeoLib.Proxies/bin/Debug
+/GeoLib.Proxies/obj/Debug
+/GeoLib.Data/obj/Debug
+/GeoLib.Data/bin/Debug
+*.user
+/GeoLib.Services/bin/Debug
+/GeoLib.Services/obj/Debug
+/GeoLib.Tests/bin/Debug
+/GeoLib.Tests/obj/Debug
+/GeoLib.WebHost/bin
+/GeoLib.WebHost/obj/Debug
+/GeoLib.WindowsHost/obj/Debug
+/GeoLib.WindowsHost/bin/Debug
+*.suo
