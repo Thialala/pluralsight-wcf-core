@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using GeoLib.Contracts;
 using GeoLib.Data;
@@ -25,6 +26,8 @@ namespace GeoLib.Services
 
         public ZipCodeData GetZipInfo(string zip)
         {
+            Thread.Sleep(5000);
+
             ZipCodeData zipCodeData = null;
 
             ZipCode zipCodeEntity = _zipCodeRepository.GetByZip(zip);
