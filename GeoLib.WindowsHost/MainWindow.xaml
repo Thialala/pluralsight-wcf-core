@@ -6,6 +6,7 @@
         <StackPanel>
             <Button Name="btnStart" FontSize="20" Content="Start services" Margin="15 15 15 15" Click="btnStart_Click"></Button>
             <Button Name="btnStop" FontSize="20" Content="Stop services" Margin="15 15 15 15" Click="btnStop_Click" IsEnabled="False"></Button>
+            <Button Name="btnProcService" Content="In Proc Service" FontSize="20" Margin="15,15,289,15" Click="btnProcService_Click"/>
             <Label Name="lblText" FontSize="20" Margin="15 15 15 15"></Label>
         </StackPanel>
     </Grid>

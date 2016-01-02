@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GeoLib.Services;
+using GeoLib.WindowsHost.Contracts;
 using GeoLib.WindowsHost.Services;
 
 namespace GeoLib.WindowsHost
@@ -26,6 +27,8 @@ namespace GeoLib.WindowsHost
     public partial class MainWindow : Window
     {
         public static MainWindow MainUI { get; set; }
+
+        private SynchronizationContext _synchronizationContext;
 
 
         public MainWindow()
@@ -39,6 +42,8 @@ namespace GeoLib.WindowsHost
                          " | Process " + Process.GetCurrentProcess().Id;
 
             MainUI = this;
+
+            _synchronizationContext = SynchronizationContext.Current;
         }
 
         private ServiceHost _hostGeoManager;
@@ -67,8 +72,33 @@ namespace GeoLib.WindowsHost
 
         internal void ShowMessage(string message)
         {
-            lblText.Content = message + "(shown on thread " + Thread.CurrentThread.ManagedThreadId +
-                              " | Process " + Process.GetCurrentProcess().Id + ")";
+            int mainThreadId = Thread.CurrentThread.ManagedThreadId;
+
+            SendOrPostCallback sendOrPostCallback =
+                arg =>
+                    lblText.Content =
+                        message + Environment.NewLine + " (marshalled from thread " +
+                        Thread.CurrentThread.ManagedThreadId + " to thread " + mainThreadId +
+                        " | Process " + Process.GetCurrentProcess().Id + ")";
+
+            _synchronizationContext.Send(sendOrPostCallback, null);
+
+        }
+
+        private void btnProcService_Click(object sender, RoutedEventArgs e)
+        {
+            Task.Factory.StartNew(
+                () =>
+                {
+                    ChannelFactory<IMessageService> factory = new ChannelFactory<IMessageService>("");
+                    IMessageService proxy = factory.CreateChannel();
+
+                    proxy.ShowMessage(DateTime.Now.ToLocalTime().ToLongTimeString());
+
+                    factory.Close();
+                }
+
+                );
         }
     }
 }
