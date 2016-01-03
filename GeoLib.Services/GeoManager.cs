@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,12 +10,14 @@ using GeoLib.Data;
 
 namespace GeoLib.Services
 {
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class GeoManager : IGeoService
     {
         private readonly IZipCodeRepository _zipCodeRepository;
         private readonly IStateRepository _stateRepository;
 
-        public GeoManager():this(new StateRepository(), new ZipCodeRepository())
+        public GeoManager()
+            : this(new StateRepository(), new ZipCodeRepository())
         {
         }
 
@@ -26,7 +29,9 @@ namespace GeoLib.Services
 
         public ZipCodeData GetZipInfo(string zip)
         {
-            Thread.Sleep(5000);
+            // Use for timeout
+            //Thread.Sleep(5000);
+            throw new Exception("You can't touch this!");
 
             ZipCodeData zipCodeData = null;
 

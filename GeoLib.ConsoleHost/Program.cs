@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
+using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
 using GeoLib.Contracts;
@@ -14,6 +15,19 @@ namespace GeoLib.ConsoleHost
         static void Main(string[] args)
         {
             ServiceHost hostGeoManager = new ServiceHost(typeof(GeoManager));
+
+            //var behaviour = hostGeoManager.Description.Behaviors.Find<ServiceDebugBehavior>();
+
+            //if (behaviour == null)
+            //{
+            //    behaviour = new ServiceDebugBehavior();
+            //    behaviour.IncludeExceptionDetailInFaults = true;
+            //    hostGeoManager.Description.Behaviors.Add(behaviour);
+            //}
+            //else
+            //{
+            //    behaviour.IncludeExceptionDetailInFaults = true;
+            //}
 
             //var address = "net.tcp://localhost:8009/GeoService";
             //var binding = new NetTcpBinding();

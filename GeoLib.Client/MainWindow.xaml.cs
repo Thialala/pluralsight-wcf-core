@@ -27,12 +27,16 @@ namespace GeoLib.Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        private GeoClient _proxy;
+
         public MainWindow()
         {
             InitializeComponent();
 
             Title = "UI Running on Thread " + Thread.CurrentThread.ManagedThreadId +
                          " | Process " + Process.GetCurrentProcess().Id;
+
+            _proxy = new GeoClient();
         }
 
         private void BtnGetInfo_OnClick(object sender, RoutedEventArgs e)
@@ -42,7 +46,7 @@ namespace GeoLib.Client
                 var proxy = new GeoClient("tcpEP");
                 var data = proxy.GetZipInfo(txtZipCode.Text);
                 if (data != null)
-                { 
+                {
                     lblCity.Content = data.City;
                     lblState.Content = data.State;
                 }
@@ -60,8 +64,8 @@ namespace GeoLib.Client
 
                 //GeoClient proxy = new GeoClient(binding, address);
 
-                var proxy = new GeoClient("tcpEP");
-                var datas = proxy.GetZips(txtState.Text);
+                //var proxy = new GeoClient("tcpEP");
+                var datas = _proxy.GetZips(txtState.Text);
 
                 if (datas != null)
                 {
