@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2a733e0a-b21f-4c1f-b624-ea451fb0ca82" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6f67970f-4581-482e-9e7a-d8a1825174bc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,12 +22,12 @@
     <MetadataSource Address="http://localhost:8080" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="eea74758-f523-46dd-9e79-997db092f1d6" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd2" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="71f183ea-e8ce-45b8-88d8-e955254a7159" SourceId="1" SourceUrl="http://localhost:8080/?disco" />
-    <MetadataFile FileName="GeoManager.wsdl" MetadataType="Wsdl" ID="ffd833e0-f45d-41aa-aa19-42f3bd0b944f" SourceId="1" SourceUrl="http://localhost:8080/?wsdl" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="4b06665a-999d-4fb3-8e67-7e6af1677a8e" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd1" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="4ff3bec6-3661-4e7a-a296-f818f617fc35" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd3" />
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="d71919d5-4d72-434d-9449-1bf555f02ee1" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd0" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="f6694be4-52a6-41f4-b3cb-d295dc4459e2" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="9ff940df-dfb0-4cd7-8642-938a5df4a190" SourceId="1" SourceUrl="http://localhost:8080/?disco" />
+    <MetadataFile FileName="GeoManager.wsdl" MetadataType="Wsdl" ID="0b8cfdb0-d122-4bef-b6b6-cec4d578f3e5" SourceId="1" SourceUrl="http://localhost:8080/?wsdl" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="156d7232-9e47-4ee9-a996-272b0cb51ddc" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd1" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="96373156-3355-4843-9dff-ca17083cc9d5" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd3" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="f063d8f3-3f9e-407f-ab53-817f91afc3b2" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

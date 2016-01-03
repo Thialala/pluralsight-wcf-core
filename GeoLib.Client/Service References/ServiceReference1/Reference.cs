@@ -9,17 +9,96 @@
 //------------------------------------------------------------------------------
 
 namespace GeoLib.Client.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZipCodeData", Namespace="http://schemas.datacontract.org/2004/07/GeoLib.Contracts")]
+    [System.SerializableAttribute()]
+    public partial class ZipCodeData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ZipCodeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string City {
+            get {
+                return this.CityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CityField, value) != true)) {
+                    this.CityField = value;
+                    this.RaisePropertyChanged("City");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StateField, value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ZipCode {
+            get {
+                return this.ZipCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ZipCodeField, value) != true)) {
+                    this.ZipCodeField = value;
+                    this.RaisePropertyChanged("ZipCode");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGeoService")]
     public interface IGeoService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoService/GetZipInfo", ReplyAction="http://tempuri.org/IGeoService/GetZipInfoResponse")]
-        GeoLib.Contracts.ZipCodeData GetZipInfo(string zip);
+        GeoLib.Client.ServiceReference1.ZipCodeData GetZipInfo(string zip);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoService/GetZipInfo", ReplyAction="http://tempuri.org/IGeoService/GetZipInfoResponse")]
-        System.Threading.Tasks.Task<GeoLib.Contracts.ZipCodeData> GetZipInfoAsync(string zip);
+        System.Threading.Tasks.Task<GeoLib.Client.ServiceReference1.ZipCodeData> GetZipInfoAsync(string zip);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoService/GetStates", ReplyAction="http://tempuri.org/IGeoService/GetStatesResponse")]
         string[] GetStates(bool primaryOnly);
@@ -28,16 +107,16 @@ namespace GeoLib.Client.ServiceReference1 {
         System.Threading.Tasks.Task<string[]> GetStatesAsync(bool primaryOnly);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoService/GetZipsByState", ReplyAction="http://tempuri.org/IGeoService/GetZipsByStateResponse")]
-        GeoLib.Contracts.ZipCodeData[] GetZipsByState(string state);
+        GeoLib.Client.ServiceReference1.ZipCodeData[] GetZipsByState(string state);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoService/GetZipsByState", ReplyAction="http://tempuri.org/IGeoService/GetZipsByStateResponse")]
-        System.Threading.Tasks.Task<GeoLib.Contracts.ZipCodeData[]> GetZipsByStateAsync(string state);
+        System.Threading.Tasks.Task<GeoLib.Client.ServiceReference1.ZipCodeData[]> GetZipsByStateAsync(string state);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoService/GetZipsForRange", ReplyAction="http://tempuri.org/IGeoService/GetZipsForRangeResponse")]
-        GeoLib.Contracts.ZipCodeData[] GetZipsForRange(string zip, int range);
+        GeoLib.Client.ServiceReference1.ZipCodeData[] GetZipsForRange(string zip, int range);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoService/GetZipsForRange", ReplyAction="http://tempuri.org/IGeoService/GetZipsForRangeResponse")]
-        System.Threading.Tasks.Task<GeoLib.Contracts.ZipCodeData[]> GetZipsForRangeAsync(string zip, int range);
+        System.Threading.Tasks.Task<GeoLib.Client.ServiceReference1.ZipCodeData[]> GetZipsForRangeAsync(string zip, int range);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -67,11 +146,11 @@ namespace GeoLib.Client.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public GeoLib.Contracts.ZipCodeData GetZipInfo(string zip) {
+        public GeoLib.Client.ServiceReference1.ZipCodeData GetZipInfo(string zip) {
             return base.Channel.GetZipInfo(zip);
         }
         
-        public System.Threading.Tasks.Task<GeoLib.Contracts.ZipCodeData> GetZipInfoAsync(string zip) {
+        public System.Threading.Tasks.Task<GeoLib.Client.ServiceReference1.ZipCodeData> GetZipInfoAsync(string zip) {
             return base.Channel.GetZipInfoAsync(zip);
         }
         
@@ -83,19 +162,19 @@ namespace GeoLib.Client.ServiceReference1 {
             return base.Channel.GetStatesAsync(primaryOnly);
         }
         
-        public GeoLib.Contracts.ZipCodeData[] GetZipsByState(string state) {
+        public GeoLib.Client.ServiceReference1.ZipCodeData[] GetZipsByState(string state) {
             return base.Channel.GetZipsByState(state);
         }
         
-        public System.Threading.Tasks.Task<GeoLib.Contracts.ZipCodeData[]> GetZipsByStateAsync(string state) {
+        public System.Threading.Tasks.Task<GeoLib.Client.ServiceReference1.ZipCodeData[]> GetZipsByStateAsync(string state) {
             return base.Channel.GetZipsByStateAsync(state);
         }
         
-        public GeoLib.Contracts.ZipCodeData[] GetZipsForRange(string zip, int range) {
+        public GeoLib.Client.ServiceReference1.ZipCodeData[] GetZipsForRange(string zip, int range) {
             return base.Channel.GetZipsForRange(zip, range);
         }
         
-        public System.Threading.Tasks.Task<GeoLib.Contracts.ZipCodeData[]> GetZipsForRangeAsync(string zip, int range) {
+        public System.Threading.Tasks.Task<GeoLib.Client.ServiceReference1.ZipCodeData[]> GetZipsForRangeAsync(string zip, int range) {
             return base.Channel.GetZipsForRangeAsync(zip, range);
         }
     }

@@ -98,6 +98,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\ServiceReference1\GeoLib.Client.ServiceReference1.ZipCodeData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference1\GeoManager.wsdl" />
     <None Include="Service References\ServiceReference1\item.xsd">
       <SubType>Designer</SubType>
@@ -114,16 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GeoLib.Contracts\GeoLib.Contracts.csproj">
-      <Project>{3fb4dd63-034c-48dd-bb58-737c05ceca94}</Project>
-      <Name>GeoLib.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GeoLib.Proxies\GeoLib.Proxies.csproj">
-      <Project>{b7bee0eb-7ec2-4309-86e0-2d73c8fa46f3}</Project>
-      <Name>GeoLib.Proxies</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

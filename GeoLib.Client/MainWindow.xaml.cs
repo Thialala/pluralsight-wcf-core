@@ -2,8 +2,6 @@
 using System.ServiceModel;
 using System.Threading;
 using System.Windows;
-using GeoLib.Client.Contracts;
-using GeoLib.Proxies;
 
 namespace GeoLib.Client
 {
@@ -24,8 +22,8 @@ namespace GeoLib.Client
         {
             if (txtZipCode.Text != null)
             {
-                var proxy = new GeoClient();
-                var data = proxy.GetZipInfo(txtZipCode.Text);
+                var proxy = new ServiceReference1.GeoServiceClient();
+                ServiceReference1.ZipCodeData data = proxy.GetZipInfo(txtZipCode.Text);
                 if (data != null)
                 {
                     lblCity.Content = data.City;
@@ -45,24 +43,12 @@ namespace GeoLib.Client
 
                 //GeoClient proxy = new GeoClient(binding, address);
 
-                var proxy = new GeoClient();
-                var datas = proxy.GetZips(txtState.Text);
-
-                if (datas != null)
-                {
-                    lstZips.ItemsSource = datas;
-                }
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ChannelFactory<IMessageService> factory = new ChannelFactory<IMessageService>("");
-            IMessageService proxy = factory.CreateChannel();
 
-            proxy.ShowMsg(txtMessage.Text);
-
-            factory.Close();
         }
     }
 }
